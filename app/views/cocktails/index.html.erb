@@ -1,16 +1,26 @@
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1600276695810-f8c5e6e5496c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3904&q=80)">
+  <h1 id="main-header">El Señor Cocktail</h1>
+</div>
 <div class="container">
-  <h1>All Cocktails (<%= @cocktails.length %>)</h1>
+  <div class="btn"> Create Cocktail</div>
+</div>
+<div class="container-fluid m-12">
   <div class="row">
     <% @cocktails.each do |cocktail| %>
     <div class="col-md-4">
       <div class="card" style="width: 100%;">
+        <img src="https://i2.wp.com/dishesdelish.com/wp-content/uploads/2018/08/Mojito-Cocktail-Recipe-Square-1.jpg" class="card-img" alt="...">
         <div class="card-body">
           <h5 class="card-title"><%= cocktail.name.capitalize %></h5>
           <p class="card-text">This is a description of the yummy cocktail to make you super thirsty</p>
-          <%= link_to 'View Cocktail', cocktail_path(cocktail), class: 'card-link' %>
+          <div class="card-footer">
+            <%= link_to 'View Cocktail', cocktail_path(cocktail), class: 'card-link' %>
+          </div>
         </div>
       </div>
     </div>
     <% end %>
   </div>
+</div>
+</div>
 </div>
