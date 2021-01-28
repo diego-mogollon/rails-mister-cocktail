@@ -8,6 +8,7 @@
     <div class="row">
       <li class="list-inline-item"><%= dose.description %></li>
     <li class="list-inline-item"><%= dose.ingredient.name %></li>
+    <li class="list-inline-item"><%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %></li>
     </div>
     <% end %>
     <div class="container">
