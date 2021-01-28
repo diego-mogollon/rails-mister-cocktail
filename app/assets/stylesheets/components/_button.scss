@@ -26,6 +26,7 @@ $spotThree: #ff1f8f;
   transition: box-shadow 0.5s;
 
   &:hover {
+    text-decoration: none;
     color: white;
     box-shadow:
       0 0 60px 2px $spotTwo,
@@ -33,6 +34,7 @@ $spotThree: #ff1f8f;
   }
 
   &:after {
+    text-decoration: none;
     position: absolute;
     top: 2px;
     right: 2px;
@@ -42,4 +44,9 @@ $spotThree: #ff1f8f;
     background-image: linear-gradient( 170deg, rgba(white, 0.3), rgba(white, 0) );
     pointer-events: none;
   }
+}
+
+#create-cocktail-btn {
+  text-decoration: none;
+  color: white;
 }

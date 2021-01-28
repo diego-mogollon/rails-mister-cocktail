@@ -1,15 +1,20 @@
 <div class="container">
   <h1><%= @cocktail.name.capitalize %></h1>
-  <div class="container-fluid">
-   <img src="https://i2.wp.com/dishesdelish.com/wp-content/uploads/2018/08/Mojito-Cocktail-Recipe-Square-1.jpg" class="img-fluid" alt="Responsive image">
-   <div>
-    <% @cocktail.doses.each do |dose| %>
-    <p><%= dose.description %></p>
-    <p><%= dose.ingredient.name %></p>
-    <%= link_to 'Delete Ingredient', dose_path(dose), method: :delete, data: { confirm: "Are you sure, buddy?" } %>
-    <% end %>
-    <%= link_to 'Add Ingredient', new_cocktail_dose_path(@cocktail) %>
-    <%= link_to 'Delete Cocktail', cocktail_path(@cocktail), method: :delete, data: { confirm: "Are you sure, buddy?" } %>
-  </div>
 </div>
+  <div class="container-fluid">
+   <img src="https://i2.wp.com/dishesdelish.com/wp-content/uploads/2018/08/Mojito-Cocktail-Recipe-Square-1.jpg" class="img-fluid" id="show-cocktail" alt="Responsive image">
+   <div class="container">
+    <% @cocktail.doses.each do |dose| %>
+    <div class="row">
+      <li class="list-inline-item"><%= dose.description %></li>
+    <li class="list-inline-item"><%= dose.ingredient.name %></li>
+    </div>
+    <% end %>
+    <div class="container">
+    <div class="list-inline">
+    <li class="list-inline-item"><%= link_to 'Add Ingredient ', new_cocktail_dose_path(@cocktail) %></li>
+    <li class="list-inline-item"><%= link_to 'Delete Cocktail ', cocktail_path(@cocktail), method: :delete, data: { confirm: "Are you sure, buddy?" } %></li>
+    </div>
+    </div>
+  </div>
 </div>
