@@ -1,5 +1,7 @@
 <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1600276695810-f8c5e6e5496c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3904&q=80)">
+  <div class="container">
   <h1 id="main-header">El Señor Cocktail</h1>
+  </div>
 </div>
 <div class="container">
   <div class="btn">
@@ -10,9 +12,15 @@
   <div class="container">All Cocktails (<%= @cocktails.length %>)</div>
   <div class="row">
     <% @cocktails.each do |cocktail| %>
+            <!-- Dispaly default Picture or picture user has uploaded -->
+        <% cocktail_photo = '' %>
+        <% if cocktail.photo.attached? %>
+          <% cocktail_photo = cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+          <% cocktail_photo = asset_path 'cocktail.jpg' %>
+        <% end %>
     <div class="col-md-4">
-      <div class="card" style="width: 100%;">
-        <img src="https://i2.wp.com/dishesdelish.com/wp-content/uploads/2018/08/Mojito-Cocktail-Recipe-Square-1.jpg" class="card-img" alt="...">
+      <div class="card-bg-img" style="width: 100%; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url(<%= cocktail_photo %>)">
         <div class="card-body">
           <h5 class="card-title"><%= cocktail.name.capitalize %></h5>
           <p class="card-text">This is a description of the yummy cocktail to make you super thirsty</p>
